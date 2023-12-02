@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 420880477}
   - component: {fileID: 420880480}
   m_Layer: 5
-  m_Name: Sports
+  m_Name: Canteen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1a339aec0e802486a9793f0b6df2ce8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d7033eeaa52ca541bbecdde32cb24cb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1678,7 +1678,7 @@ GameObject:
   - component: {fileID: 862833603}
   - component: {fileID: 862833606}
   m_Layer: 5
-  m_Name: Staircase
+  m_Name: Ravi Tapri
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1779,7 +1779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d0868c68781db407d9fe7c5d1d7eccd4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a40d4cecb54e574297d51de6ee9ed4a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3110,7 +3110,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0d27c57d5a0514f2ebf00e25b26bf787, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52d0c10635988374890d28e006b1c19c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3422,7 +3422,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 51ea61e0d19de4ee6a1cc65eb538212e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: de44db4c995e5ba4187b564515dc3a3d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
