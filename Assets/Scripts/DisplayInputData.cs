@@ -3,50 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using TMPro;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(InputData))]
 public class DisplayInputData : MonoBehaviour
 {
-    public TextMeshProUGUI leftXText;
-    public TextMeshProUGUI leftYText;
-    public TextMeshProUGUI leftZText;
-    public TextMeshProUGUI rightXText;
-    public TextMeshProUGUI rightYText;
-    public TextMeshProUGUI rightZText;
-    
     private InputData _inputData;
 
-    private float _leftX = 0f;
-    private float _leftY = 0f;
-    private float _leftZ = 0f;
-    private float _rightX = 0f;
-    private float _rightY = 0f;
     private float _rightZ = 0f;
+    private float _meanRightZ = 0f;
+
+    public TextMeshProUGUI _rightZText;
 
     private void Start()
     {
         _inputData = GetComponent<InputData>();
     }
     // Update is called once per frame
+
+    public void CalibrateMeanZPosition()
+    {
+        _inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightPosition);
+        _meanRightZ = rightPosition.z;
+    }
     void Update()
     {
-        if (_inputData._leftController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 leftPosition))
+        if (_meanRightZ == 0f)
         {
-            _leftX = leftPosition.x;
-            _leftY = leftPosition.y;
-            _leftZ = leftPosition.z;
-            leftXText.text = _leftX.ToString("F2");
-            leftYText.text = _leftY.ToString("F2");
-            leftZText.text = _leftZ.ToString("F2");
+           _rightZText.text = "x";
         }
-        if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightPosition))
+        else if (_inputData._rightController.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 rightPosition))
         {
-            _rightX = rightPosition.x;
-            _rightY = rightPosition.y;
             _rightZ = rightPosition.z;
-            rightXText.text = _rightX.ToString("F2");
-            rightYText.text = _rightY.ToString("F2");
-            rightZText.text = _rightZ.ToString("F2");
+            float difference = _rightZ - _meanRightZ;
+            // measure breathing of a person using the controller
+            // person has controller on their stomach
+            // when they breathe in, the controller moves away from the body
+            // when they breathe out, the controller moves towards the body
+            // the difference between the mean and the current position is the breathing
+            // display the difference up to the nearest 0.01 float
+            _rightZText.text = difference.ToString("F2");
         }
     }
 }
